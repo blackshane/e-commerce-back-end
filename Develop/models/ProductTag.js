@@ -15,15 +15,17 @@ ProductTag.init(
     product_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'product',
-        key: 'id'
+        model: 'Product',
+        key: 'id',
+        onDelete: 'CASCADE'
       }
     },
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'tag',
-        key: 'id'
+        model: 'Tag',
+        key: 'id',
+        onDelete: 'CASCADE'
       }
     }
   },
@@ -33,6 +35,8 @@ ProductTag.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'product_tag',
+    foreignKeyConstraints: true,
+    onDelete: 'CASCADE'
   }
 );
 
